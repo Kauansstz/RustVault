@@ -5,6 +5,7 @@ mod utils;
 
 use models::livro::Livro;
 use service::cadastrar_livro::CadastrarLivro;
+use service::listar_livros::ListarLivros;
 
 use crate::{models::livro, utils::emprestimo::Status};
 
@@ -61,7 +62,11 @@ fn main() {
             }
         } 
         "2" => {
-            println!("A opção escolhida foi a 2");
+            println!();
+            println!("--- Listagem de livros disponiveis ---");
+            let listagem = ListarLivros::carregar_livros();
+            listagem.exibir_livros();
+
         } 
         "3" => {
             println!("A opção escolhida foi a 3");
