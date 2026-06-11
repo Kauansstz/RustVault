@@ -1,16 +1,13 @@
 [
   {
     "id": 1,
-    "titulo": "Teste 2",
-    "emprestimo": "DISPONIVEL",
-    "classificacao": "+18",
-    "usuario": null
-  },
-  {
-    "id": 2,
-    "titulo": "Teste 3",
-    "emprestimo": "DISPONIVEL",
-    "classificacao": "10",
+    "titulo": "Teste",
+    "emprestimo": {
+      "Emprestado": {
+        "usuario": "teste"
+      }
+    },
+    "classificacao": "18",
     "usuario": null
   }
 ]
