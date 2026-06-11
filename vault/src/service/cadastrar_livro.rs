@@ -1,6 +1,9 @@
 use std::fs;
 use std::io;
+use std::thread;
+use std::time::Duration;
 use crate::models::livro::Livro;
+use crate::utils::loading::loading;
 use serde::{Serialize, Deserialize};
 #[derive(Debug, Serialize, Deserialize, Clone, PartialEq)]
 pub struct CadastrarLivro{
@@ -31,7 +34,10 @@ impl CadastrarLivro{
 
         self.livros.push(novo_livro);
 
+        loading();
+        thread::sleep(Duration::from_secs(2));
         self.salvar_json().map_err(|e| format!("Erro ao salvar arquivo: {}", e))?;
+
         println!("Livro cadastrado com sucesso!");
         Ok(())
     }

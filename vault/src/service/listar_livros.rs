@@ -1,6 +1,6 @@
 
 use std::fs;
-use crate::models::livro::Livro;
+use crate::{models::livro::Livro, utils::loading::loading};
 use serde::{Serialize, Deserialize};
 
 #[derive(Debug, Serialize, Deserialize, Clone, PartialEq)]
@@ -24,11 +24,13 @@ impl ListarLivros {
             println!("Nenhum livro encontrado nas prateleiras.");
             return;
         }
-        
+        loading();
+        println!();
+        println!();
         println!("{:-<60}", "-");
         println!("{:<4} | {:<20} | {:<15} | {:<12}", "ID", "Título", "Classificação", "Empréstimo");
         println!("{:-<60}", "-");
-        
+
         for livro in &self.livros {
             let status_formatado = format!("{:?}", livro.emprestimo);
             

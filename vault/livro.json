@@ -13,7 +13,8 @@
     "id": 2,
     "titulo": "teste 2",
     "emprestimo": {
-      "status": "disponivel"
+      "status": "emprestado",
+      "usuario": "teste"
     },
     "classificacao": "10",
     "usuario": null
@@ -25,6 +26,43 @@
       "status": "disponivel"
     },
     "classificacao": "Livre",
+    "usuario": null
+  },
+  {
+    "id": 4,
+    "titulo": "Teste 3",
+    "emprestimo": {
+      "status": "emprestado",
+      "usuario": "teste"
+    },
+    "classificacao": "10",
+    "usuario": null
+  },
+  {
+    "id": 5,
+    "titulo": "Teste 4",
+    "emprestimo": {
+      "status": "disponivel"
+    },
+    "classificacao": "10",
+    "usuario": null
+  },
+  {
+    "id": 6,
+    "titulo": "Teste 5",
+    "emprestimo": {
+      "status": "disponivel"
+    },
+    "classificacao": "18",
+    "usuario": null
+  },
+  {
+    "id": 7,
+    "titulo": "Teste 6",
+    "emprestimo": {
+      "status": "disponivel"
+    },
+    "classificacao": "10",
     "usuario": null
   }
 ]

@@ -1,6 +1,7 @@
 use std::fs;
 use std::io;
 use std::thread;
+use crate::utils::loading::loading;
 use std::time::Duration;
 use crate::models::livro::Livro;
 use crate::utils::emprestimo;
@@ -42,7 +43,7 @@ impl Devolucao {
     }
 
     let possui_indisponiveis = self.livros.iter().any(|l| matches!(l.emprestimo, Status::Emprestado { .. }));
-    println!("TESTE");
+
     if !possui_indisponiveis {
         println!("Nenhum livro indisponível no momento.");
         return;
@@ -76,7 +77,7 @@ impl Devolucao {
             .ok_or_else(|| "Nenhum livro encontrado com este ID.".to_string())?;
 
         println!("Realizando a transferência...");
-        thread::sleep(Duration::from_secs(3));
+        loading();
         
         livro.emprestimo = emprestimo::Status::DISPONIVEL;
         
