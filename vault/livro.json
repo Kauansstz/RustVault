@@ -1,13 +1,30 @@
 [
   {
     "id": 1,
-    "titulo": "Teste",
+    "titulo": "teste 1",
     "emprestimo": {
-      "Emprestado": {
-        "usuario": "teste"
-      }
+      "status": "emprestado",
+      "usuario": "teste"
     },
     "classificacao": "18",
+    "usuario": null
+  },
+  {
+    "id": 2,
+    "titulo": "teste 2",
+    "emprestimo": {
+      "status": "disponivel"
+    },
+    "classificacao": "10",
+    "usuario": null
+  },
+  {
+    "id": 3,
+    "titulo": "O Pequeno Principe",
+    "emprestimo": {
+      "status": "disponivel"
+    },
+    "classificacao": "Livre",
     "usuario": null
   }
 ]

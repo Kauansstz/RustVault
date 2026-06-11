@@ -20,8 +20,6 @@ impl ListarLivros {
     }
 
     pub fn exibir_livros(&self) {
-        println!("Livros disponiveis: {:?}", self.livros);
-        println!("Livros disponiveis: {:?}",  self.livros.len());
         if self.livros.is_empty() {
             println!("Nenhum livro encontrado nas prateleiras.");
             return;

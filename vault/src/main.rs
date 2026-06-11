@@ -12,7 +12,7 @@ use service::listar_livros::ListarLivros;
 use service::emprestimo_livro::EmprestimoLivro;
 use std::thread;
 use std::time::Duration;
-use crate::{models::livro, utils::emprestimo::{self, Status}};
+use crate::{models::livro, service::devolucao::Devolucao, utils::emprestimo::{self, Status}};
 
 fn main() {
     let mut cadastrar = CadastrarLivro::new();
@@ -100,7 +100,27 @@ fn main() {
                 }
             }
             "4" => {
-                println!("A opção escolhida foi a 4");
+                println!();
+                println!("--- Listagem de livros indisponiveis ---");
+                let mut biblioteca = Devolucao::carregar_livros();
+                biblioteca.exibir_livros();
+
+                println!();
+                println!("--- Digite um ID para selecionar ---");
+                let mut numero_livro = String::new();
+                io::stdin().read_line(&mut numero_livro).expect("Falha ao ler a linha");
+                match biblioteca.alterar_emprestimo(numero_livro) {
+                    Ok(_) => {
+                        thread::sleep(Duration::from_secs(2));
+                        println!("");
+                        Devolucao::salvar_json(&biblioteca); 
+                    }
+                    Err(mensagem_erro) => {
+                        thread::sleep(Duration::from_secs(2));
+                        println!("");
+                        println!("Falha em fazer a transferência: {}", mensagem_erro);
+                    }
+                }
             } 
             "5" => {
                 println!("A opção escolhida foi a 5");
