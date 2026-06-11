@@ -26,9 +26,10 @@ impl ListarLivros {
         }
 
         println!("{:-<60}", "-");
+        println!("{:<4} | {:<20} | {:<15} | {:<12}", "ID", "Título", "Classificação","Emprétismo");
+        println!("{:-<60}", "-");
         for livro in &self.livros{
-            println!(
-                "ID: {} | Título: {} | Classificação: {} | Emprétismo: {:?}",
+            println!("{:<4} | {:<20} | {:<15} | {:<12?}",
                 livro.id, livro.titulo, livro.classificacao, livro.emprestimo
             );
         }
