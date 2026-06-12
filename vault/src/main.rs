@@ -12,7 +12,7 @@ use service::listar_livros::ListarLivros;
 use service::emprestimo_livro::EmprestimoLivro;
 use std::thread;
 use std::time::Duration;
-use crate::{models::livro, service::devolucao::Devolucao, utils::emprestimo::{self, Status}};
+use crate::{models::livro, service::{devolucao::Devolucao, pesquisa::Pesquisa}, utils::emprestimo::{self, Status}};
 
 fn main() {
     let mut cadastrar = CadastrarLivro::new();
@@ -123,7 +123,14 @@ fn main() {
                 }
             } 
             "5" => {
-                println!("A opção escolhida foi a 5");
+                println!("");
+                println!("");
+                let  biblioteca = Pesquisa::carregar_json();
+                println!("--- Digite um ID ou um Nome para pesqusiar ---");
+                let mut numero_livro = String::new();
+                io::stdin().read_line(&mut numero_livro).expect("Falha ao ler a linha");
+                biblioteca.search(numero_livro) ;
+
             } "6" => {
                 println!("Saindo do sistema... Até logo!");
                 break; 
